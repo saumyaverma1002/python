@@ -1,0 +1,18 @@
+# Use the official Python image
+FROM python:3.9-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy application files to the container
+COPY . .
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Command to run the application
+CMD ["python", "app.py"]
+
+
+##### --no-cache-dir => Prevents pip from saving downloaded package files to the cache directory,
+#####   ensuring a cleaner build environment and avoiding potential issues with stale caches.
